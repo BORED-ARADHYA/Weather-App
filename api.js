@@ -5,6 +5,7 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 let isCelsius = true;
+let currentTempCelsius = 0;
 
 async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -15,8 +16,9 @@ async function checkWeather(city) {
     } else {
         var data = await response.json();
 
+        currentTempCelsius = data.main.temp;
         document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".temp").innerHTML = Math.round(currentTempCelsius) + "°C";
         document.querySelector(".humidity").innerHTML = data.main.humidity + " %";
         document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
 
@@ -43,13 +45,12 @@ searchBtn.addEventListener("click", () => {
 
 document.getElementById("toggleUnit").addEventListener("click", () => {
     let tempElement = document.querySelector(".temp");
-    let tempValue = parseInt(tempElement.textContent);
 
     if (isCelsius) {
-        tempElement.innerHTML = Math.round((tempValue * 9/5) + 32) + "°F";
+        tempElement.innerHTML = Math.round((currentTempCelsius * 9/5) + 32) + "°F";
         document.getElementById("toggleUnit").innerText = "°C";
     } else {
-        tempElement.innerHTML = Math.round((tempValue - 32) * 5/9) + "°C";
+        tempElement.innerHTML = Math.round(currentTempCelsius) + "°C";
         document.getElementById("toggleUnit").innerText = "°F";
     }
 
