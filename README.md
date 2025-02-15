@@ -22,7 +22,7 @@ As a **beginner**, this project was a great learning experience! I started with 
 - **OpenWeather API** – Real-time weather data  
 
 ## 📸 Preview  
-![Weather App Screenshot](images/screenshot.png)  
+![Weather App Screenshot](images/Screenshot.png)  
 
 ## 🔧 Setup Instructions  
 1️⃣ Clone this repository:  
