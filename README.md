@@ -29,7 +29,7 @@ As a beginner, this project was a great learning experience! I started with the 
 
 ## 📸 Preview
 
-![Weather App Screenshot](screenshot.png)
+![Weather App Screenshot](images/Screenshot.png)
 
 ## 🔧 Setup Instructions
 
